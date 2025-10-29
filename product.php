@@ -104,7 +104,7 @@ try {
             <?php
             endif;    
              ?>
-            <button><a href="index.php"> Back to shop</a></button>
+            <button id="back-to-shop-btn"> Back to shop</button>
         </div>
         <div id="add-to-cart-message" style="margin-top: 15px; color: green; font-weight: bold; display: none;">
             Product added to cart!
