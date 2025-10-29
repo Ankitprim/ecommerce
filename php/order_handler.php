@@ -76,8 +76,12 @@ try {
     foreach ($_SESSION['cart'] as $product_id => $quantity) {
         $price = $products[$product_id]['price'];
         $stmt->execute([$order_id, $product_id, $quantity, $price]);
+        // 3.i Updating stock in 'products' table 
+        $stock = $products[$product_id]['stock'] - $quantity ;
+        $stmt = $pdo->prepare("UPDATE products set stock = ? where id = ?");
+        $stmt->execute([$stock, $product_id]);
     }
-
+        
     // 4. Commit transaction
     $pdo->commit();
 
